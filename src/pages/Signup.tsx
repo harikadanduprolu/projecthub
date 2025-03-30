@@ -9,6 +9,8 @@ const Signup = () => {
   const navigate = useNavigate();
   
   const handleSuccessfulSignup = () => {
+    // Set login state in localStorage
+    localStorage.setItem('isLoggedIn', 'true');
     navigate('/');
   };
   

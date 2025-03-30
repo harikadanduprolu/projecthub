@@ -18,49 +18,57 @@ const Teams = () => {
       name: "Alex Rivera",
       role: "Full Stack Developer",
       skills: ["React", "Node.js", "MongoDB"],
-      university: "Stanford University"
+      university: "Stanford University",
+      id: "alex-rivera"
     },
     {
       name: "Mia Chen",
       role: "UX Designer",
       skills: ["Figma", "User Research", "Prototyping"],
-      university: "Carnegie Mellon"
+      university: "Carnegie Mellon",
+      id: "mia-chen"
     },
     {
       name: "Jordan Taylor",
       role: "Data Scientist",
       skills: ["Python", "ML", "Data Analysis"],
-      university: "MIT"
+      university: "MIT",
+      id: "jordan-taylor"
     },
     {
       name: "Sam Wilson",
       role: "Mobile Developer",
       skills: ["Flutter", "Firebase", "UI Design"],
-      university: "UC Berkeley"
+      university: "UC Berkeley",
+      id: "sam-wilson"
     },
     {
       name: "Aisha Johnson",
       role: "AI Researcher",
       skills: ["TensorFlow", "Python", "NLP"],
-      university: "Georgia Tech"
+      university: "Georgia Tech",
+      id: "aisha-johnson"
     },
     {
       name: "Carlos Mendez",
       role: "Hardware Engineer",
       skills: ["Arduino", "PCB Design", "IoT"],
-      university: "Caltech"
+      university: "Caltech",
+      id: "carlos-mendez"
     },
     {
       name: "Zoe Williams",
       role: "Project Manager",
       skills: ["Agile", "Team Leadership", "Strategy"],
-      university: "Harvard University"
+      university: "Harvard University",
+      id: "zoe-williams"
     },
     {
       name: "Eric Chang",
       role: "Game Developer",
       skills: ["Unity", "C#", "3D Modeling"],
-      university: "NYU"
+      university: "NYU",
+      id: "eric-chang"
     }
   ];
   

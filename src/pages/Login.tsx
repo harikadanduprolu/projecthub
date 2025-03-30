@@ -9,6 +9,8 @@ const Login = () => {
   const navigate = useNavigate();
   
   const handleSuccessfulLogin = () => {
+    // Set login state in localStorage
+    localStorage.setItem('isLoggedIn', 'true');
     navigate('/');
   };
   
@@ -19,6 +21,11 @@ const Login = () => {
           <Button variant="ghost" size="icon" className="rounded-full text-content-primary hover:text-neon-blue hover:bg-white/5">
             <Home className="h-5 w-5" />
           </Button>
+          <img 
+            src="/lovable-uploads/9af9cf0d-522f-4fdf-96e4-b832881c0bd5.png" 
+            alt="ProCollab Logo" 
+            className="h-7 w-7" 
+          />
           <span className="font-bold text-xl gradient-text">ProCollab</span>
         </Link>
       </div>

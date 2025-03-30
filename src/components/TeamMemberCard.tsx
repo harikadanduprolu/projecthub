@@ -1,8 +1,15 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, UserPlus, FolderPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu';
 
 interface TeamMemberCardProps {
   name: string;
@@ -10,6 +17,7 @@ interface TeamMemberCardProps {
   skills: string[];
   avatar?: string;
   university: string;
+  id?: string;
 }
 
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
@@ -17,7 +25,8 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   role,
   skills,
   avatar,
-  university
+  university,
+  id = "1" // Default ID if none provided
 }) => {
   return (
     <div className="glass-card neon-border rounded-xl overflow-hidden p-5 transition-all duration-300 hover:transform hover:-translate-y-2 animate-fade-in">
@@ -64,13 +73,31 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         ))}
       </div>
       
-      <Button 
-        variant="outline"
-        className="w-full border-neon-pink text-neon-pink hover:bg-neon-pink/10 flex items-center justify-center gap-2"
-      >
-        <MessageSquare size={16} />
-        Connect
-      </Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button 
+            variant="outline"
+            className="w-full border-neon-pink text-neon-pink hover:bg-neon-pink/10 flex items-center justify-center gap-2"
+          >
+            <MessageSquare size={16} />
+            Connect
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="bg-surface-dark border border-white/10">
+          <Link to={`/chat?type=team&id=${id}`}>
+            <DropdownMenuItem className="cursor-pointer hover:bg-neon-purple/20">
+              <UserPlus className="mr-2 h-4 w-4 text-neon-purple" />
+              <span>Connect for Team</span>
+            </DropdownMenuItem>
+          </Link>
+          <Link to={`/chat?type=project&id=${id}`}>
+            <DropdownMenuItem className="cursor-pointer hover:bg-neon-blue/20">
+              <FolderPlus className="mr-2 h-4 w-4 text-neon-blue" />
+              <span>Connect for Project</span>
+            </DropdownMenuItem>
+          </Link>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 };

@@ -103,9 +103,8 @@ const Index = () => {
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 gradient-text text-glow">
             Connect. Collaborate.<br />Create Together.
-            <br />
           </h1>
-          <p className="text-content-secondary text-lg md:text-xl max-w-2xl mx-auto mb-9">
+          <p className="text-content-secondary text-lg md:text-xl max-w-2xl mx-auto mb-8">
             ProCollab connects students across disciplines to form teams, find mentors, and secure funding for innovative projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

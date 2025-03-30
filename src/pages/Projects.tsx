@@ -15,6 +15,7 @@ const Projects = () => {
   
   const projects = [
     {
+      id: "1",
       title: "AI-Powered Campus Navigator",
       description: "Create an AI system to help new students navigate campus facilities and resources.",
       tags: ["AI", "Mobile App", "UX Design"],
@@ -23,6 +24,7 @@ const Projects = () => {
       difficulty: "Medium"
     },
     {
+      id: "2",
       title: "Sustainable Energy Monitor",
       description: "Build a real-time dashboard to monitor and optimize energy usage across campus.",
       tags: ["IoT", "Data Viz", "Sustainability"],
@@ -31,6 +33,7 @@ const Projects = () => {
       difficulty: "Hard"
     },
     {
+      id: "3",
       title: "Mental Health Companion",
       description: "Design an app to support student mental health with resources and anonymous support.",
       tags: ["Health", "App Dev", "Psychology"],
@@ -39,6 +42,7 @@ const Projects = () => {
       difficulty: "Medium"
     },
     {
+      id: "4",
       title: "Smart Campus Recycling",
       description: "Create a system to track and improve recycling habits across university campuses.",
       tags: ["Hardware", "Environmental", "IoT"],
@@ -47,6 +51,7 @@ const Projects = () => {
       difficulty: "Medium"
     },
     {
+      id: "5",
       title: "Collaborative Music Platform",
       description: "Build a platform for student musicians to collaborate on compositions remotely.",
       tags: ["Audio", "Web Dev", "Creative"],
@@ -55,6 +60,7 @@ const Projects = () => {
       difficulty: "Medium"
     },
     {
+      id: "6",
       title: "Robotics Lab Assistant",
       description: "Design a robotic assistant to help with common lab tasks in science departments.",
       tags: ["Robotics", "AI", "Hardware"],
@@ -82,12 +88,10 @@ const Projects = () => {
   };
   
   const filteredProjects = projects.filter(project => {
-    // Filter by search query
     const matchesSearch = searchQuery === '' || 
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
       project.description.toLowerCase().includes(searchQuery.toLowerCase());
     
-    // Filter by tags
     const matchesTags = activeFilters.length === 0 || 
       activeFilters.some(tag => project.tags.includes(tag));
     
@@ -223,7 +227,11 @@ const Projects = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
+                <ProjectCard 
+                  key={index} 
+                  {...project} 
+                  id={project.id} // Explicitly pass the ID
+                />
               ))}
             </div>
             
@@ -233,7 +241,7 @@ const Projects = () => {
                 <p className="text-content-secondary mb-6">Try adjusting your search or filters to find projects.</p>
                 <Button 
                   variant="outline" 
-                  className="border-neon-blue text-neon-blue hover:bg-neon-blue/10"
+                  className="border-neon-blue text-neon-blue hover:bg-neon-blue/10 cursor-pointer"
                   onClick={clearFilters}
                 >
                   Clear Filters
@@ -243,7 +251,11 @@ const Projects = () => {
             
             {filteredProjects.length > 0 && (
               <div className="mt-10 text-center">
-                <Button variant="outline" className="border-white/10 text-content-secondary hover:border-white/30">
+                <Button 
+                  variant="outline" 
+                  className="border-white/10 text-content-secondary hover:border-white/30 cursor-pointer"
+                  onClick={() => console.log("Load more clicked")}
+                >
                   Load More Projects
                 </Button>
               </div>

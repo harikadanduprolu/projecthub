@@ -3,6 +3,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Users, Star, Calendar, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
   title: string;
@@ -12,6 +13,7 @@ interface ProjectCardProps {
   duration: string;
   difficulty: string;
   image?: string;
+  id?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -21,7 +23,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   teamSize,
   duration,
   difficulty,
-  image
+  image,
+  id = "1" // Default ID if none provided
 }) => {
   return (
     <div className="glass-card neon-border rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2 animate-fade-in">
@@ -71,11 +74,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
         
-        <Button 
-          className="w-full bg-gradient-to-r from-neon-purple to-neon-blue hover:opacity-90 transition-opacity"
-        >
-          View Details
-        </Button>
+        {/* Fix: Ensure the Link component wraps the button properly and is clickable */}
+        <Link to={`/projects/${id}`} className="w-full block">
+          <Button 
+            className="w-full bg-gradient-to-r from-neon-purple to-neon-blue hover:opacity-90 transition-opacity cursor-pointer"
+          >
+            View Details
+          </Button>
+        </Link>
       </div>
     </div>
   );
