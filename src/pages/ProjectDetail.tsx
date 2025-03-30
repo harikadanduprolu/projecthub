@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -109,21 +108,21 @@ const ProjectDetail = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="pt-32 pb-16 px-4 sticky">
-        <div className="container mx-auto">
-          <Link to="/projects" className="inline-flex items-center text-content-secondary hover:text-neon-blue mb-6">
+      <section className="pt-24 pb-16 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <Link to="/projects" className="inline-flex items-center text-content-secondary hover:text-neon-blue mb-8">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Projects
           </Link>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main content */}
-            <div className="lg:col-span-2">
-              <div className="glass-card neon-border rounded-xl p-6 mb-8">
-                <div className="flex justify-between items-start mb-4">
+            <div className="lg:col-span-2 space-y-8">
+              <div className="bg-background/50 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+                <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
                   <div>
-                    <h1 className="text-3xl md:text-4xl font-bold text-content-primary mb-2">{project.title}</h1>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <h1 className="text-4xl font-bold text-content-primary mb-3">{project.title}</h1>
+                    <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, index) => (
                         <Badge 
                           key={index} 
@@ -156,39 +155,39 @@ const ProjectDetail = () => {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="flex flex-col items-center p-3 rounded-lg bg-white/5">
-                    <Users className="h-5 w-5 text-neon-blue mb-2" />
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                  <div className="flex flex-col items-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <Users className="h-6 w-6 text-neon-blue mb-2" />
                     <span className="text-sm text-content-secondary">Team Size</span>
                     <span className="font-semibold text-content-primary">{project.teamSize} members</span>
                   </div>
-                  <div className="flex flex-col items-center p-3 rounded-lg bg-white/5">
-                    <Calendar className="h-5 w-5 text-neon-pink mb-2" />
+                  <div className="flex flex-col items-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <Calendar className="h-6 w-6 text-neon-pink mb-2" />
                     <span className="text-sm text-content-secondary">Duration</span>
                     <span className="font-semibold text-content-primary">{project.duration}</span>
                   </div>
-                  <div className="flex flex-col items-center p-3 rounded-lg bg-white/5">
-                    <Zap className="h-5 w-5 text-neon-purple mb-2" />
+                  <div className="flex flex-col items-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <Zap className="h-6 w-6 text-neon-purple mb-2" />
                     <span className="text-sm text-content-secondary">Difficulty</span>
                     <span className="font-semibold text-content-primary">{project.difficulty}</span>
                   </div>
                 </div>
                 
-                <Tabs defaultValue="overview">
-                  <TabsList className="grid grid-cols-3 mb-6">
+                <Tabs defaultValue="overview" className="w-full">
+                  <TabsList className="grid grid-cols-3 mb-8">
                     <TabsTrigger value="overview">Overview</TabsTrigger>
                     <TabsTrigger value="team">Team</TabsTrigger>
                     <TabsTrigger value="resources">Resources</TabsTrigger>
                   </TabsList>
                   
-                  <TabsContent value="overview" className="space-y-6">
+                  <TabsContent value="overview" className="space-y-8">
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Description</h3>
-                      <p className="text-content-secondary mb-4">{project.longDescription}</p>
+                      <h3 className="text-2xl font-semibold mb-4">Description</h3>
+                      <p className="text-content-secondary leading-relaxed">{project.longDescription}</p>
                     </div>
                     
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Required Skills</h3>
+                      <h3 className="text-2xl font-semibold mb-4">Required Skills</h3>
                       <div className="flex flex-wrap gap-2">
                         {project.skills.map((skill, index) => (
                           <Badge 
@@ -203,18 +202,18 @@ const ProjectDetail = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Timeline</h3>
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-center p-3 rounded-lg bg-white/5">
+                      <h3 className="text-2xl font-semibold mb-4">Timeline</h3>
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                           <div className="flex items-center">
-                            <Calendar className="h-4 w-4 text-neon-blue mr-2" />
+                            <Calendar className="h-5 w-5 text-neon-blue mr-3" />
                             <span className="text-content-secondary">Start Date</span>
                           </div>
                           <span className="font-semibold text-content-primary">{project.createdAt}</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 rounded-lg bg-white/5">
+                        <div className="flex justify-between items-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                           <div className="flex items-center">
-                            <Calendar className="h-4 w-4 text-neon-pink mr-2" />
+                            <Calendar className="h-5 w-5 text-neon-pink mr-3" />
                             <span className="text-content-secondary">Deadline</span>
                           </div>
                           <span className="font-semibold text-content-primary">{project.deadline}</span>
@@ -223,15 +222,15 @@ const ProjectDetail = () => {
                     </div>
                   </TabsContent>
                   
-                  <TabsContent value="team" className="space-y-6">
+                  <TabsContent value="team" className="space-y-8">
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Current Team</h3>
+                      <h3 className="text-2xl font-semibold mb-4">Current Team</h3>
                       <div className="space-y-4">
                         {project.members.map((member, index) => (
-                          <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-white/5">
-                            <Avatar>
+                          <div key={index} className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <Avatar className="h-12 w-12">
                               <AvatarImage src={member.avatar} alt={member.name} />
-                              <AvatarFallback className="bg-neon-purple/20 text-neon-purple">
+                              <AvatarFallback className="bg-neon-purple/20 text-neon-purple text-lg">
                                 {member.name.split(' ').map(n => n[0]).join('')}
                               </AvatarFallback>
                             </Avatar>
@@ -269,11 +268,11 @@ const ProjectDetail = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Open Roles</h3>
-                      <div className="space-y-3">
+                      <h3 className="text-2xl font-semibold mb-4">Open Roles</h3>
+                      <div className="space-y-4">
                         {project.openRoles.map((role, index) => (
-                          <div key={index} className="flex justify-between items-center p-3 rounded-lg bg-white/5">
-                            <span className="text-content-primary">{role}</span>
+                          <div key={index} className="flex justify-between items-center p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span className="text-content-primary font-medium">{role}</span>
                             <Button size="sm" variant="outline" className="border-neon-purple text-neon-purple hover:bg-neon-purple/10">
                               Apply
                             </Button>
@@ -283,19 +282,19 @@ const ProjectDetail = () => {
                     </div>
                   </TabsContent>
                   
-                  <TabsContent value="resources" className="space-y-6">
+                  <TabsContent value="resources" className="space-y-8">
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Project Resources</h3>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
-                          <FileText className="h-5 w-5 text-neon-blue" />
+                      <h3 className="text-2xl font-semibold mb-4">Project Resources</h3>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+                          <FileText className="h-6 w-6 text-neon-blue" />
                           <div>
                             <div className="font-semibold text-content-primary">Project Outline</div>
                             <div className="text-sm text-content-secondary">PDF Document • 2.3 MB</div>
                           </div>
                         </div>
-                        <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
-                          <Github className="h-5 w-5 text-neon-purple" />
+                        <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+                          <Github className="h-6 w-6 text-neon-purple" />
                           <div>
                             <div className="font-semibold text-content-primary">Github Repository</div>
                             <div className="text-sm text-content-secondary">Code repository with initial setup</div>
@@ -309,8 +308,8 @@ const ProjectDetail = () => {
             </div>
             
             {/* Sidebar */}
-            <div>
-              <div className="glass-card neon-border rounded-xl p-6 mb-6 sticky top-24">
+            <div className="space-y-6">
+              <div className="bg-background/50 backdrop-blur-sm border border-white/10 rounded-xl p-6  top-24">
                 <h3 className="text-xl font-semibold mb-4">Join This Project</h3>
                 <p className="text-content-secondary mb-6">
                   Interested in this project? Apply now to collaborate with the team!
@@ -338,29 +337,29 @@ const ProjectDetail = () => {
                 </Button>
               </div>
               
-              <div className="glass-card rounded-xl p-6 " >
-                <h3 className="text-lg font-semibold mb-3 ">Similar Projects</h3>
+              <div className="bg-background/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+                <h3 className="text-xl font-semibold mb-4">Similar Projects</h3>
                 <div className="space-y-4">
-                  <div className="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
-                    <h4 className="font-semibold text-content-primary">Smart Campus Recycling</h4>
-                    <div className="flex flex-wrap gap-1 my-2">
+                  <div className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+                    <h4 className="font-semibold text-content-primary mb-2">Smart Campus Recycling</h4>
+                    <div className="flex flex-wrap gap-1 mb-3">
                       <Badge variant="outline" className="bg-neon-purple/10 text-neon-purple border-neon-purple/30 text-xs">Hardware</Badge>
                       <Badge variant="outline" className="bg-neon-purple/10 text-neon-purple border-neon-purple/30 text-xs">IoT</Badge>
                     </div>
-                    <div className="flex items-center text-content-secondary text-xs">
-                      <Users className="h-3 w-3 mr-1" />
+                    <div className="flex items-center text-content-secondary text-sm">
+                      <Users className="h-4 w-4 mr-1" />
                       4 members
                     </div>
                   </div>
                   
-                  <div className="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
-                    <h4 className="font-semibold text-content-primary">Mental Health Companion</h4>
-                    <div className="flex flex-wrap gap-1 my-2">
+                  <div className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
+                    <h4 className="font-semibold text-content-primary mb-2">Mental Health Companion</h4>
+                    <div className="flex flex-wrap gap-1 mb-3">
                       <Badge variant="outline" className="bg-neon-purple/10 text-neon-purple border-neon-purple/30 text-xs">Health</Badge>
                       <Badge variant="outline" className="bg-neon-purple/10 text-neon-purple border-neon-purple/30 text-xs">App Dev</Badge>
                     </div>
-                    <div className="flex items-center text-content-secondary text-xs">
-                      <Users className="h-3 w-3 mr-1" />
+                    <div className="flex items-center text-content-secondary text-sm">
+                      <Users className="h-4 w-4 mr-1" />
                       3 members
                     </div>
                   </div>

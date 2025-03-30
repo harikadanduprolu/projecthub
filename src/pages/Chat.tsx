@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -109,24 +108,24 @@ const Chat = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface-dark flex flex-col">
+    <div className="min-h-screen bg-zinc-950">
       <Navbar />
       
       <div className="flex-1 flex flex-col container mx-auto px-4 pt-24 pb-16">
         <h1 className="text-3xl font-bold gradient-text mb-6">Messages</h1>
         
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-16rem)]">
           {/* Chat List */}
-          <div className="lg:col-span-1">
-            <Tabs defaultValue="teams" className="w-full" onValueChange={setChatType}>
+          <div className="lg:col-span-1 overflow-hidden">
+            <Tabs defaultValue="teams" className="w-full h-full flex flex-col" onValueChange={setChatType}>
               <TabsList className="w-full mb-4">
                 <TabsTrigger value="teams" className="flex-1"><Users className="mr-2 h-4 w-4" /> Teams</TabsTrigger>
                 <TabsTrigger value="projects" className="flex-1"><Folder className="mr-2 h-4 w-4" /> Projects</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="teams" className="mt-0">
-                <Card>
-                  <CardContent className="p-0">
+              <TabsContent value="teams" className="mt-0 flex-1 overflow-hidden">
+                <Card className="h-full bg-zinc-900/50 border-zinc-800">
+                  <CardContent className="p-0 h-full overflow-y-auto">
                     <div className="divide-y divide-border">
                       {teamChats.map(chat => (
                         <div 
@@ -163,9 +162,9 @@ const Chat = () => {
                 </Card>
               </TabsContent>
               
-              <TabsContent value="projects" className="mt-0">
-                <Card>
-                  <CardContent className="p-0">
+              <TabsContent value="projects" className="mt-0 flex-1 overflow-hidden">
+                <Card className="h-full bg-zinc-900/50 border-zinc-800">
+                  <CardContent className="p-0 h-full overflow-y-auto">
                     <div className="divide-y divide-border">
                       {projectChats.map(chat => (
                         <div 
@@ -205,13 +204,13 @@ const Chat = () => {
           </div>
           
           {/* Chat Messages */}
-          <div className="lg:col-span-3 flex flex-col h-[calc(100vh-250px)]">
-            <Card className="flex-1 flex flex-col">
+          <div className="lg:col-span-3 flex flex-col">
+            <Card className="h-full flex flex-col bg-zinc-900/50 border-zinc-800">
               <CardContent className="flex flex-col h-full p-0">
                 {activeChat ? (
                   <>
                     {/* Chat Header */}
-                    <div className="p-4 border-b border-border flex items-center gap-3">
+                    <div className="p-4 border-b border-zinc-800 flex items-center gap-3">
                       <Avatar>
                         <AvatarFallback className={chatType === 'teams' ? 'bg-neon-purple/20 text-neon-purple' : 'bg-neon-blue/20 text-neon-blue'}>
                           {activeChat.name.substring(0, 2).toUpperCase()}
@@ -226,12 +225,12 @@ const Chat = () => {
                     </div>
                     
                     {/* Messages */}
-                    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                    <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[calc(100vh-24rem)]">
                       {activeChat.messages.map(message => (
                         <div key={message.id} className={`flex ${message.isMine ? 'justify-end' : 'justify-start'}`}>
                           <div className={`max-w-[70%] rounded-lg p-3 ${message.isMine 
                             ? 'bg-neon-purple/20 text-white ml-auto' 
-                            : 'bg-accent text-foreground'}`}
+                            : 'bg-zinc-800/50 text-foreground'}`}
                           >
                             {!message.isMine && (
                               <div className="font-medium text-sm mb-1">{message.sender}</div>
@@ -244,7 +243,7 @@ const Chat = () => {
                     </div>
                     
                     {/* Message Input */}
-                    <div className="p-4 border-t border-border">
+                    <div className="p-4 border-t border-zinc-800">
                       <div className="flex gap-2">
                         <Textarea 
                           placeholder="Type your message..." 
