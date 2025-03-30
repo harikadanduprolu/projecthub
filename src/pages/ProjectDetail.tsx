@@ -109,7 +109,7 @@ const ProjectDetail = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="pt-32 pb-16 px-4">
+      <section className="pt-32 pb-16 px-4 sticky">
         <div className="container mx-auto">
           <Link to="/projects" className="inline-flex items-center text-content-secondary hover:text-neon-blue mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -338,8 +338,8 @@ const ProjectDetail = () => {
                 </Button>
               </div>
               
-              <div className="glass-card rounded-xl p-6">
-                <h3 className="text-lg font-semibold mb-3">Similar Projects</h3>
+              <div className="glass-card rounded-xl p-6 " >
+                <h3 className="text-lg font-semibold mb-3 ">Similar Projects</h3>
                 <div className="space-y-4">
                   <div className="p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer">
                     <h4 className="font-semibold text-content-primary">Smart Campus Recycling</h4>

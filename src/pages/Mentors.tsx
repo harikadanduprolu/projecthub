@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface MentorProps {
   name: string;
@@ -154,9 +155,11 @@ const Mentors = () => {
             <p className="text-content-secondary mb-6 max-w-2xl mx-auto">
               Are you an industry professional or academic expert interested in guiding the next generation of talent? Join our mentorship program.
             </p>
+            <Link to="/mentors/become">
             <Button className="bg-neon-blue hover:bg-neon-blue/80 text-black font-medium px-8">
               Apply as Mentor
             </Button>
+            </Link>
           </div>
         </section>
       </main>

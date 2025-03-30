@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Users, Star, Calendar, Zap } from 'lucide-react';
@@ -27,7 +26,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   id = "1" // Default ID if none provided
 }) => {
   return (
-    <div className="glass-card neon-border rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2 animate-fade-in">
+    <div className="glass-card neon-border rounded-xl overflow-hidden relative transition-all duration-300 hover:transform hover:-translate-y-2 animate-fade-in">
+      
+      {/* Image Section */}
       <div className="h-40 overflow-hidden relative">
         {image ? (
           <img
@@ -40,10 +41,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <span className="text-2xl gradient-text font-bold">{title.substring(0, 2)}</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/90 to-transparent"></div>
+        
+        {/* Overlay with pointer-events disabled */}
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/90 to-transparent pointer-events-none"></div>
       </div>
       
-      <div className="p-5">
+      {/* Content Section */}
+      <div className="p-5 relative z-10">
         <h3 className="text-xl font-bold text-content-primary mb-2">{title}</h3>
         <p className="text-content-secondary text-sm mb-4">{description}</p>
         
@@ -73,15 +77,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <span>{difficulty}</span>
           </div>
         </div>
-        
-        {/* Fix: Ensure the Link component wraps the button properly and is clickable */}
-        <Link to={`/projects/${id}`} className="w-full block">
-          <Button 
-            className="w-full bg-gradient-to-r from-neon-purple to-neon-blue hover:opacity-90 transition-opacity cursor-pointer"
+
+        {/* Button with Link inside */}
+        <Button className="w-full bg-gradient-to-r from-neon-purple to-neon-blue hover:opacity-90 transition-opacity cursor-pointer">
+          <Link 
+            to={`/projects/${id}`} 
+            className="w-full block text-white no-underline"
           >
             View Details
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </div>
   );
