@@ -126,7 +126,7 @@ const Index = () => {
             <div className="relative mx-auto w-full max-w-4xl overflow-hidden rounded-xl border border-white/10 shadow-2xl animate-float">
               <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/10 via-neon-blue/10 to-neon-pink/10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&q=80&w=1024" 
+                src="https://www.simplilearn.com/ice9/free_resources_article_thumb/project_management_coursefees.jpg" 
                 alt="ProCollab Platform" 
                 className="w-full h-auto"
               />

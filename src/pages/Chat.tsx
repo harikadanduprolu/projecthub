@@ -114,9 +114,9 @@ const Chat = () => {
       <div className="flex-1 flex flex-col container mx-auto px-4 pt-24 pb-16">
         <h1 className="text-3xl font-bold gradient-text mb-6">Messages</h1>
         
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-16rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-16rem)] relative">
           {/* Chat List */}
-          <div className="lg:col-span-1 overflow-hidden">
+          <div className="lg:col-span-1 overflow-hidden relative z-10">
             <Tabs defaultValue="teams" className="w-full h-full flex flex-col" onValueChange={setChatType}>
               <TabsList className="w-full mb-4">
                 <TabsTrigger value="teams" className="flex-1"><Users className="mr-2 h-4 w-4" /> Teams</TabsTrigger>
@@ -204,7 +204,7 @@ const Chat = () => {
           </div>
           
           {/* Chat Messages */}
-          <div className="lg:col-span-3 flex flex-col">
+          <div className="lg:col-span-3 flex flex-col relative z-10">
             <Card className="h-full flex flex-col bg-zinc-900/50 border-zinc-800">
               <CardContent className="flex flex-col h-full p-0">
                 {activeChat ? (
@@ -243,7 +243,7 @@ const Chat = () => {
                     </div>
                     
                     {/* Message Input */}
-                    <div className="p-4 border-t border-zinc-800">
+                    <div className="p-4 border-t border-zinc-800 relative z-20">
                       <div className="flex gap-2">
                         <Textarea 
                           placeholder="Type your message..." 
